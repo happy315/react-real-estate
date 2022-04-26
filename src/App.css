@@ -10,4 +10,8 @@
 
 :root{
   --primary-background-color:#fff;
+  --secondary-background-color:#000;
+  --primary-color:#000;
+  --secondary-color:#fff;
+  --primary-border-color:#333;
 }
