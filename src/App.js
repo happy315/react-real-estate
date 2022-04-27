@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-import SmallNav from "./components/Header/SmallNav";
+import Header from "./components/Header/Navbar/Header";
 
 function App() {
   return (
     <div className="App">
-      <SmallNav />
+      <Header />
     </div>
   );
 }

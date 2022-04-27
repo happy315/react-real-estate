@@ -14,7 +14,7 @@ const Nav = styled.div`
   align-items: center;
   background-color: var(--primary-background-color);
   padding: 0 2rem;
-  border-bottom: 2px solid #bcb5b5;
+  border-bottom: 0.15rem solid var(--primary-border-color);
 `;
 const Social = styled.div`
   a {
@@ -71,7 +71,7 @@ const SmallNav = () => {
       </Social>
       <Contact>
         <a href="#phone">
-          <BsTelephone style={{ color: "green" }}/>
+          <BsTelephone style={{ color: "green" }} />
           :46738934579834
         </a>
 
