@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import FirstDropdown from "../Dropdowns/FirstDropdown";
 
 const Nav = styled.div`
   display: flex;
@@ -15,10 +16,12 @@ const Dropdowns = styled.div`
   ul {
     list-style: none;
     display: flex;
+    
   }
   ul li {
     padding: 0rem 2rem;
     font-size: 1.2rem;
+    cursor: pointer;
   }
 `;
 const Blog = styled.div`
@@ -29,13 +32,24 @@ const Blog = styled.div`
   }
 `;
 
+
+
 const MainNav = () => {
+
+
+  const [dropdown, setDropDown] = useState(false);
+
+  const dropDownHandler = () => {
+    setDropDown(!dropdown);
+  }
+
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li>Our Guides</li>
+          <li onClick={dropDownHandler}>dropdown</li>
+          {dropdown && <FirstDropdown />}
           <li>Selling</li>
           <li>Buying</li>
           <li>Listing</li>
