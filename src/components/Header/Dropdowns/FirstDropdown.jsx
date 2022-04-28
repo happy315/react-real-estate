@@ -1,5 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+
+
+const Main = styled.div`
+  width: 250px;
+  height: auto;
+  background-color:#000;
+  position: absolute;
+  margin:1rem 0rem;
+  color:#fff;
+  padding:1rem 0;
+  
+  
+`
+
+const Dropdownlist = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  li{
+    padding: 3rem 0;
+  }
+`
+
+
 
 const MenuItems = [
   {
@@ -43,22 +68,22 @@ const FirstDropdown = () => {
   };
 
   return (
-    <div>
-      <ul
+    <Main>
+      <Dropdownlist
         onClick={handleClick}
         className={"click" ? "dropdown-menu clicked" : "dropdown-menu"}
       >
         {MenuItems.map((item, index) => {
           return (
             <li key={index}>
-                  <Link to={item.path} onClick={() =>setClick(false)}>
+                  <Link style={{color:'#fff',textDecoration:"none",fontSize:'1.3rem'}} to={item.path} onClick={() =>setClick(false)}>
                   {item.title}
                   </Link>
             </li>
           );
         })}
-      </ul>
-    </div>
+      </Dropdownlist>
+    </Main>
   );
 };
 export default FirstDropdown;

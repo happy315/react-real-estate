@@ -48,8 +48,8 @@ const MainNav = () => {
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li onClick={dropDownHandler}>dropdown</li>
-          {dropdown && <FirstDropdown />}
+          <li onClick={dropDownHandler}>Our Guides{dropdown && <FirstDropdown />}</li>
+          
           <li>Selling</li>
           <li>Buying</li>
           <li>Listing</li>
