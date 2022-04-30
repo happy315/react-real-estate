@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import FirstDropdown from "../Dropdowns/FirstDropdown";
-
 const Nav = styled.div`
   display: flex;
   justify-content: space-around;
@@ -36,20 +35,20 @@ const Blog = styled.div`
 
 const MainNav = () => {
 
-
   const [dropdown, setDropDown] = useState(false);
-
   const dropDownHandler = () => {
-    setDropDown(!dropdown);
-  }
+        setDropDown(!dropdown)
+   }
+  
 
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li onClick={dropDownHandler}>Our Guides{dropdown && <FirstDropdown />}</li>
-          
+          <li onClick={dropDownHandler}>Our Guides</li>
+          {dropdown && <FirstDropdown/> }
+
           <li>Selling</li>
           <li>Buying</li>
           <li>Listing</li>

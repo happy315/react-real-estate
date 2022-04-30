@@ -2,88 +2,81 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-
-const Main = styled.div`
-  width: 250px;
-  height: auto;
-  background-color:#000;
-  position: absolute;
-  margin:1rem 0rem;
-  color:#fff;
-  padding:1rem 0;
-  
-  
-`
-
-const Dropdownlist = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  li{
-    padding: 3rem 0;
-  }
-`
-
-
-
-const MenuItems = [
+const Menuitems = [
   {
-    title: "Our Lifestyle Guide",
-    path: "/Lifestyle",
+    title: "Our Lifestyle Guides",
+    to: "/Our-Lifestyle-Guides",
   },
   {
-    title: "Our Buying Guide",
-    path: "/Buying",
+    title: "Our Buying Guides",
+    to: "/Our-Buying-Guides",
   },
   {
     title: "For Sellers",
-    path: "/Sellers",
-  },
-  {
-    title: "For Buyers",
-    path: "/Buyers",
+    to: "/For-sellers",
   },
   {
     title: "For Downsizing",
-    path: "/DownSizing",
+    to: "/For-Downsizing",
   },
   {
-    title: "For condos",
-    path: "/Condos",
+    title: "For Condos",
+    to: "/For-Condos",
   },
   {
-    title: "Get All Our GUides",
-    path: "/All-Guides",
+    title: "Get All Our Guides",
+    to: "/Get All Our Guides",
   },
   {
     title: "The Collection Magazine By Compass",
-    path: "/Collection-Magazine-By-Compass",
+    to: "/Get All Our Guides",
   },
 ];
+const Fdropdown = styled.div`
+  width: 250px;
+  height: auto;
+  display: block;
+  position: absolute;
+  top: 100px;
+  padding: 1rem 0rem;
+  background-color: #000;
+  .hide {
+    display: none;
+  }
+`;
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  li {
+    padding: 2rem 0;
+  }
+  li .link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+  }
+`;
+
 const FirstDropdown = () => {
-  const [click, setClick] = useState(false);
 
-  const handleClick = () => {
-    setClick(!click);
-  };
-
+  
   return (
-    <Main>
-      <Dropdownlist
-        onClick={handleClick}
-        className={"click" ? "dropdown-menu clicked" : "dropdown-menu"}
-      >
-        {MenuItems.map((item, index) => {
+    <Fdropdown>
+      <List>
+        {Menuitems.map((item, index) => {
           return (
             <li key={index}>
-                  <Link style={{color:'#fff',textDecoration:"none",fontSize:'1.3rem'}} to={item.path} onClick={() =>setClick(false)}>
-                  {item.title}
-                  </Link>
+              <Link to={item.to}  className="link">
+                {item.title}
+              </Link>
             </li>
           );
         })}
-      </Dropdownlist>
-    </Main>
+      </List>
+    </Fdropdown>
   );
 };
 export default FirstDropdown;
