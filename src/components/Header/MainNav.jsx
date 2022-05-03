@@ -49,7 +49,7 @@ const FirstDropDown = styled.ul`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      animation: animation-one 2s alternate forwards;
+      animation: animation-one 1.5s alternate forwards;
       
       @keyframes animation-one {
          from{
