@@ -104,27 +104,27 @@ const MainNav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/" onClick={hideDropDownHandler}>
+                  <Link className="Flink" to="/For-Sellers" onClick={hideDropDownHandler}>
                     For Sellers
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/" onClick={hideDropDownHandler}>
+                  <Link className="Flink" to="/For-Downsizing" onClick={hideDropDownHandler}>
                     For Downsizing
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/" onClick={hideDropDownHandler}>
+                  <Link className="Flink" to="/For-Condos" onClick={hideDropDownHandler}>
                     For Condos
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/" onClick={hideDropDownHandler}>
+                  <Link className="Flink" to="/Get-All-Our-Guides" onClick={hideDropDownHandler}>
                     Get All Our Guides
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/" onClick={hideDropDownHandler}>
+                  <Link className="Flink" to="/The-Collection-Magazine-By-Compass" onClick={hideDropDownHandler}>
                     The Collection Magazine by Compass
                   </Link>
                 </li>
