@@ -88,7 +88,7 @@ const MainNav = () => {
       <Dropdowns>
         <ul>
           <li>
-            <Link className="link" to="/" onClick={firstDropDownHandler}>
+            <Link className="link"  onClick={firstDropDownHandler}>
               Our Guides <IoMdArrowDropdown />
             </Link>
             {dropdown && (
