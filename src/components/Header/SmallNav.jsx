@@ -6,7 +6,7 @@ import { ImPinterest2 } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
 import { RiLinkedinLine } from "react-icons/ri";
 import { AiOutlineMail } from "react-icons/ai";
-import { BsTelephone } from "react-icons/bs";
+import { FaPhoneVolume } from "react-icons/fa";
 
 const Nav = styled.div`
   display: flex;
@@ -17,7 +17,9 @@ const Nav = styled.div`
   border-bottom: 0.15rem solid var(--primary-border-color);
 `;
 const Social = styled.div`
+position: relative;
   a {
+    position: relative;
     padding: 0 0.5rem;
     text-decoration: none;
     color: var(--primary-color);
@@ -71,17 +73,17 @@ const SmallNav = () => {
       </Social>
       <Contact>
         <a href="#phone">
-          <BsTelephone style={{ color: "green" }} />
+          <FaPhoneVolume style={{ color: "green",position:'relative',top:'3px' }} />
           :46738934579834
         </a>
 
         <a href="#email">
-          <AiOutlineMail style={{ color: "green" }} />
+          <AiOutlineMail style={{ color: "green",position:'relative',top:'3px' }} />
           :singhjodadj@gmail.com
         </a>
 
         <a href="#email">
-          <AiOutlineMail style={{ color: "green" }} />
+          <AiOutlineMail style={{ color: "green",position:'relative',top:'3px' }} />
           :sbdgsvbsdwvddga@gmail.com
         </a>
       </Contact>
