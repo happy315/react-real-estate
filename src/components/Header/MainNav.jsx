@@ -25,6 +25,7 @@ const Dropdowns = styled.div`
     cursor: pointer;
   }
   ul li .link {
+    position: relative;
     cursor: pointer;
     text-decoration: none;
     color: #000;
@@ -82,7 +83,7 @@ const SecondDropDown = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   animation: animation-one 1.5s alternate forwards;
- 
+
   @keyframes animation-one {
     from {
       transform: translateY(0);
@@ -100,29 +101,32 @@ const SecondDropDown = styled.ul`
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
-  };
-`
-
+  }
+`;
 
 const MainNav = () => {
   const [dropdown, setDropDown] = useState(false);
 
   const firstDropDownHandler = () => {
+    setSecondDropDown(false);
     setDropDown(!dropdown);
-  }
-  
+  };
 
   // When someone click on link so dropdown hide and user go to another page
   const hideDropDownHandler = () => {
     setDropDown(false);
-  }
+  };
+  // write same code for second dropdown
+
   const [secondDropDown, setSecondDropDown] = useState(false);
   const secondDropDownHandler = () => {
-    setSecondDropDown(!secondDropDown);
-  }
+     setDropDown(false)
+      setSecondDropDown(!secondDropDown);
+    }
+  
   const hideSecondDropDownHandler = () => {
     setSecondDropDown(false);
-  }
+  };
 
   return (
     <Nav>
@@ -130,43 +134,72 @@ const MainNav = () => {
       <Dropdowns>
         <ul>
           <li>
-            <Link className="link"  onClick={firstDropDownHandler}>
-              Our Guides <IoMdArrowDropdown />
+            <Link className="link" onClick={firstDropDownHandler}>
+              Our Guides{" "}
+              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
             {dropdown && (
               <FirstDropDown>
                 <li>
-                  <Link className="Flink" to="/Our-LifeStle-Guides" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/Our-LifeStle-Guides"
+                    onClick={hideDropDownHandler}
+                  >
                     Our Lifestyle Guides
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/Our-Buying-Guides" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/Our-Buying-Guides"
+                    onClick={hideDropDownHandler}
+                  >
                     Our Buying Guides
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/For-Sellers" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/For-Sellers"
+                    onClick={hideDropDownHandler}
+                  >
                     For Sellers
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/For-Downsizing" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/For-Downsizing"
+                    onClick={hideDropDownHandler}
+                  >
                     For Downsizing
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/For-Condos" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/For-Condos"
+                    onClick={hideDropDownHandler}
+                  >
                     For Condos
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/Get-All-Our-Guides" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/Get-All-Our-Guides"
+                    onClick={hideDropDownHandler}
+                  >
                     Get All Our Guides
                   </Link>
                 </li>
                 <li>
-                  <Link className="Flink" to="/The-Collection-Magazine-By-Compass" onClick={hideDropDownHandler}>
+                  <Link
+                    className="Flink"
+                    to="/The-Collection-Magazine-By-Compass"
+                    onClick={hideDropDownHandler}
+                  >
                     The Collection Magazine by Compass
                   </Link>
                 </li>
@@ -175,23 +208,33 @@ const MainNav = () => {
           </li>
           <li>
             <Link className="link" onClick={secondDropDownHandler}>
-              Selling <IoMdArrowDropdown />
+              Selling{" "}
+              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
-            {secondDropDown && <SecondDropDown>
-              <li>
-                <Link className="slink" onClick={hideSecondDropDownHandler}>Selling with us</Link>
-              </li>
-              <li>
-                <Link className="slink" onClick={hideSecondDropDownHandler}>Selling New Homes</Link>
-              </li>
-              <li>
-                <Link className="slink" onClick={hideSecondDropDownHandler}>What Is Your Home Worth?</Link>
-              </li>
-              <li>
-                <Link className="slink" onClick={hideSecondDropDownHandler}>Book a Seller's Consultation</Link>
-              </li>
-            </SecondDropDown>}
-            
+            {secondDropDown && (
+              <SecondDropDown>
+                <li>
+                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                    Selling with us
+                  </Link>
+                </li>
+                <li>
+                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                    Selling New Homes
+                  </Link>
+                </li>
+                <li>
+                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                    What Is Your Home Worth?
+                  </Link>
+                </li>
+                <li>
+                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                    Book a Seller's Consultation
+                  </Link>
+                </li>
+              </SecondDropDown>
+            )}
           </li>
           <li>
             <Link className="link" to="/">
