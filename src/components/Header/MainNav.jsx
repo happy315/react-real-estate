@@ -70,16 +70,58 @@ const FirstDropDown = styled.ul`
   }
 `;
 
+// write styling for second dropdown
+
+const SecondDropDown = styled.ul`
+  width: 250px;
+  background-color: #000;
+  position: absolute;
+  top: 6.2rem;
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: animation-one 1.5s alternate forwards;
+ 
+  @keyframes animation-one {
+    from {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  li {
+    margin: 0.5rem 0;
+  }
+  li .slink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+  };
+`
+
+
 const MainNav = () => {
   const [dropdown, setDropDown] = useState(false);
 
   const firstDropDownHandler = () => {
     setDropDown(!dropdown);
   }
+  
 
   // When someone click on link so dropdown hide and user go to another page
   const hideDropDownHandler = () => {
     setDropDown(false);
+  }
+  const [secondDropDown, setSecondDropDown] = useState(false);
+  const secondDropDownHandler = () => {
+    setSecondDropDown(!secondDropDown);
+  }
+  const hideSecondDropDownHandler = () => {
+    setSecondDropDown(false);
   }
 
   return (
@@ -132,9 +174,24 @@ const MainNav = () => {
             )}
           </li>
           <li>
-            <Link className="link" to="/">
-              Selling
+            <Link className="link" onClick={secondDropDownHandler}>
+              Selling <IoMdArrowDropdown />
             </Link>
+            {secondDropDown && <SecondDropDown>
+              <li>
+                <Link className="slink" onClick={hideSecondDropDownHandler}>Selling with us</Link>
+              </li>
+              <li>
+                <Link className="slink" onClick={hideSecondDropDownHandler}>Selling New Homes</Link>
+              </li>
+              <li>
+                <Link className="slink" onClick={hideSecondDropDownHandler}>What Is Your Home Worth?</Link>
+              </li>
+              <li>
+                <Link className="slink" onClick={hideSecondDropDownHandler}>Book a Seller's Consultation</Link>
+              </li>
+            </SecondDropDown>}
+            
           </li>
           <li>
             <Link className="link" to="/">
