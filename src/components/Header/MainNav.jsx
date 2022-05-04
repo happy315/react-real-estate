@@ -2,6 +2,44 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
+
+const FirstDropDownItems = [
+  {
+    id:'1',
+    title: 'Our Lifestyle Guides',
+    path: '/Our-LifeStle-Guides',
+  },
+  {
+    id:'2',
+    title: 'Our Buying Guides',
+    path: '/Our-Buying-Guides',
+  },
+  {
+    id:'3',
+    title: 'For Sellers',
+    path: '/For-Sellers',
+  },
+  {
+    id:'4',
+    title: 'For Downsizing',
+    path: '/For-Downsizing',
+  },
+  {
+    id:'5',
+    title: 'For Condos',
+    path: '/For-Condos',
+  },
+  {
+    id:'6',
+    title: 'Get All Our Guides',
+    path: '/Get-All-Our-Guides',
+  },
+  {
+    id:'7',
+    title: 'The Collection Magazine by Compass',
+    path: '/The-Collection-Magazine-By-Compass',
+  },
+]
 const Nav = styled.div`
   display: flex;
   justify-content: space-around;
@@ -123,7 +161,7 @@ const MainNav = () => {
      setDropDown(false)
       setSecondDropDown(!secondDropDown);
     }
-  
+  // When someone click on link so dropdown hide and user go to another page
   const hideSecondDropDownHandler = () => {
     setSecondDropDown(false);
   };
@@ -135,101 +173,54 @@ const MainNav = () => {
         <ul>
           <li>
             <Link className="link" onClick={firstDropDownHandler}>
-              Our Guides{" "}
+              Our Guides
               <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
+
             {dropdown && (
               <FirstDropDown>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/Our-LifeStle-Guides"
-                    onClick={hideDropDownHandler}
-                  >
-                    Our Lifestyle Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/Our-Buying-Guides"
-                    onClick={hideDropDownHandler}
-                  >
-                    Our Buying Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/For-Sellers"
-                    onClick={hideDropDownHandler}
-                  >
-                    For Sellers
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/For-Downsizing"
-                    onClick={hideDropDownHandler}
-                  >
-                    For Downsizing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/For-Condos"
-                    onClick={hideDropDownHandler}
-                  >
-                    For Condos
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/Get-All-Our-Guides"
-                    onClick={hideDropDownHandler}
-                  >
-                    Get All Our Guides
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="Flink"
-                    to="/The-Collection-Magazine-By-Compass"
-                    onClick={hideDropDownHandler}
-                  >
-                    The Collection Magazine by Compass
-                  </Link>
-                </li>
+                
+                {FirstDropDownItems.map((element) => {
+                  return (
+                    <li>
+                      <Link
+                        className="Flink"
+                        to={element.path}
+                        onClick={hideDropDownHandler}
+                      >
+                        {element.title}
+                      </Link>
+                    </li>
+                  )
+                })
+                }
               </FirstDropDown>
             )}
           </li>
           <li>
             <Link className="link" onClick={secondDropDownHandler}>
-              Selling{" "}
+              Selling
               <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
             {secondDropDown && (
               <SecondDropDown>
                 <li>
-                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Selling-with-us" onClick={hideSecondDropDownHandler}>
                     Selling with us
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Selling-New-Homes" onClick={hideSecondDropDownHandler}>
                     Selling New Homes
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/What-Is-Your-Home-Worth?" onClick={hideSecondDropDownHandler}>
                     What Is Your Home Worth?
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Book-A-Seller's-Consultation" onClick={hideSecondDropDownHandler}>
                     Book a Seller's Consultation
                   </Link>
                 </li>
@@ -238,23 +229,23 @@ const MainNav = () => {
           </li>
           <li>
             <Link className="link" to="/">
-              Buying
+              Buying  <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
           </li>
           <li>
             <Link className="link" to="/">
-              Listing
+              Listing <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
           </li>
           <li>
             <Link className="link" to="/">
-              Our Team
+              Our Team <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
           </li>
         </ul>
       </Dropdowns>
       <Blog>
-        <Link className="link" to="/">
+        <Link className="link" to="/Blog">
           Blog
         </Link>
       </Blog>
