@@ -99,6 +99,9 @@ const FirstDropDown = styled.ul`
       opacity: 1;
     }
   }
+  .active{
+    visibility: visible;
+  }
   li {
     margin: 0.5rem 0;
   }
@@ -107,6 +110,7 @@ const FirstDropDown = styled.ul`
     text-decoration: none;
     font-size: 1.2rem;
   }
+ 
 `;
 
 // write styling for second dropdown
@@ -121,7 +125,6 @@ const SecondDropDown = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   animation: animation-one 1.5s alternate forwards;
-
   @keyframes animation-one {
     from {
       transform: translateY(0);
@@ -140,32 +143,24 @@ const SecondDropDown = styled.ul`
     text-decoration: none;
     font-size: 1.2rem;
   }
+  
 `;
 
 const MainNav = () => {
-  const [dropdown, setDropDown] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
 
   const firstDropDownHandler = () => {
-    setSecondDropDown(false);
-    setDropDown(!dropdown);
+    setDropdown(!dropdown)
   };
-
-  // When someone click on link so dropdown hide and user go to another page
-  const hideDropDownHandler = () => {
-    setDropDown(false);
-  };
-  // write same code for second dropdown
-
-  const [secondDropDown, setSecondDropDown] = useState(false);
+  const [secondDropDown,setSecondDropDown] = useState(false) 
   const secondDropDownHandler = () => {
-     setDropDown(false)
-      setSecondDropDown(!secondDropDown);
-    }
-  // When someone click on link so dropdown hide and user go to another page
-  const hideSecondDropDownHandler = () => {
-    setSecondDropDown(false);
+   
+    setSecondDropDown(!secondDropDown)
   };
 
+  
+
+  
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
@@ -177,7 +172,7 @@ const MainNav = () => {
               <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
 
-            {dropdown && (
+            {dropdown &&
               <FirstDropDown>
                 
                 {FirstDropDownItems.map((element) => {
@@ -186,7 +181,7 @@ const MainNav = () => {
                       <Link
                         className="Flink"
                         to={element.path}
-                        onClick={hideDropDownHandler}
+                        
                       >
                         {element.title}
                       </Link>
@@ -195,37 +190,37 @@ const MainNav = () => {
                 })
                 }
               </FirstDropDown>
-            )}
+            }
           </li>
           <li>
-            <Link className="link" onClick={secondDropDownHandler}>
+            <Link className="link" onClick={secondDropDownHandler} >
               Selling
               <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             </Link>
-            {secondDropDown && (
+            {secondDropDown &&
               <SecondDropDown>
                 <li>
-                  <Link className="slink" to="/Selling-with-us" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Selling-with-us" >
                     Selling with us
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" to="/Selling-New-Homes" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Selling-New-Homes" >
                     Selling New Homes
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" to="/What-Is-Your-Home-Worth?" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/What-Is-Your-Home-Worth?" >
                     What Is Your Home Worth?
                   </Link>
                 </li>
                 <li>
-                  <Link className="slink" to="/Book-A-Seller's-Consultation" onClick={hideSecondDropDownHandler}>
+                  <Link className="slink" to="/Book-A-Seller's-Consultation" >
                     Book a Seller's Consultation
                   </Link>
                 </li>
               </SecondDropDown>
-            )}
+            }
           </li>
           <li>
             <Link className="link" to="/">
