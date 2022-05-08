@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled,{keyframes} from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const FirstDropDownItems = [
@@ -51,6 +51,9 @@ const Nav = styled.div`
 const Logo = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
+  &:hover {
+    color:#f509d9;
+   }
 `;
 const Dropdowns = styled.div`
   ul {
@@ -68,8 +71,13 @@ const Dropdowns = styled.div`
     text-decoration: none;
     color: #000;
   }
+  &:hover{
+   color:green;
+  }
 `;
 const Blog = styled.div`
+   color:#000;
+   
   .link {
     text-decoration: none;
     letter-spacing: 0.2rem;
@@ -77,6 +85,18 @@ const Blog = styled.div`
     font-size: 1.5rem;
     color: #000;
   }
+  
+`;
+// Below i write the code of animation
+const animation_one =keyframes`
+    from {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
 `;
 const FirstDropDown = styled.ul`
   width: 250px;
@@ -87,22 +107,9 @@ const FirstDropDown = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  visibility: hidden;
-  animation: animation-one 1.5s alternate forwards;
-
-  @keyframes animation-one {
-    from {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  .active {
-    visibility: visible;
-  }
+  visibility:hidden;
+  animation: ${animation_one} 1.5s alternate forwards;
+  
   li {
     margin: 0.5rem 0;
   }
@@ -111,12 +118,13 @@ const FirstDropDown = styled.ul`
     text-decoration: none;
     font-size: 1.2rem;
   }
-  li .Flink:hover{
+  li .Flink:hover {
     color: #f709d4;
     font-size: 1.3rem;
   }
-  
 `;
+// I write the code of animation below with help of keyframe
+
 
 // write styling for second dropdown
 
@@ -129,18 +137,9 @@ const SecondDropDown = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  visibility: hidden;
-  animation: animation-one 1.5s alternate forwards;
-  @keyframes animation-one {
-    from {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+  visibility:hidden;
+  animation: ${animation_one} 1.5s alternate forwards;
+  
   li {
     margin: 0.5rem 0;
   }
@@ -149,35 +148,22 @@ const SecondDropDown = styled.ul`
     text-decoration: none;
     font-size: 1.2rem;
   }
+  
 `;
 
 const MainNav = () => {
-
-  const firstDropDownHandler = () => {
-    
-    FirstDropDown.classList.toggle("active");
-  };
-  // const hideDropDownHandler = () => {
-  //   setDropdown(false);
-  // }
-  // const [secondDropDown, setSecondDropDown] = useState(false);
-  // const secondDropDownHandler = () => {
-  //   setSecondDropDown(!secondDropDown);
-  // };
+     
 
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li>
-            <Link className="link" to='/' onClick={firstDropDownHandler}>
-              Our Guides
-              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            </Link>
-
+          <li className="link" >
+            Our Guides
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             {
-              <FirstDropDown className="dropdown">
+              <FirstDropDown>
                 {FirstDropDownItems.map((element) => {
                   return (
                     <li key={element.id}>
@@ -190,11 +176,9 @@ const MainNav = () => {
               </FirstDropDown>
             }
           </li>
-          <li>
-            <Link className="link" to='/'>
-              Selling
-              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            </Link>
+          <li className="link">
+            Selling
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             {
               <SecondDropDown>
                 <li>
@@ -220,23 +204,17 @@ const MainNav = () => {
               </SecondDropDown>
             }
           </li>
-          <li>
-            <Link className="link" to="/">
-              Buying{" "}
-              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            </Link>
+          <li className="link">
+            Buying
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           </li>
-          <li>
-            <Link className="link" to="/">
-              Listing{" "}
-              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            </Link>
+          <li className="link">
+            Listing
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           </li>
-          <li>
-            <Link className="link" to="/">
-              Our Team{" "}
-              <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            </Link>
+          <li className="link">
+            Our Team
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           </li>
         </ul>
       </Dropdowns>
