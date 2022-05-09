@@ -51,9 +51,6 @@ const Nav = styled.div`
 const Logo = styled.div`
   font-size: 1.2rem;
   cursor: pointer;
-  &:hover {
-    color:#f509d9;
-   }
 `;
 const Dropdowns = styled.div`
   ul {
@@ -65,20 +62,18 @@ const Dropdowns = styled.div`
     font-size: 1.2rem;
     cursor: pointer;
   }
-  ul li .link {
-    position: relative;
-    cursor: pointer;
-    text-decoration: none;
-    color: #000;
+  ul li:hover{
+    color:green;
   }
-  &:hover{
-   color:green;
+  ul li:hover > ul{
+     visibility: visible;
   }
+  
 `;
 const Blog = styled.div`
    color:#000;
    
-  .link {
+  .blog {
     text-decoration: none;
     letter-spacing: 0.2rem;
     font-weight: 320;
@@ -219,7 +214,7 @@ const MainNav = () => {
         </ul>
       </Dropdowns>
       <Blog>
-        <Link className="link" to="/Blog">
+        <Link className="blog" to="/Blog">
           Blog
         </Link>
       </Blog>
