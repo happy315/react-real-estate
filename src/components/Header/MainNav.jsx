@@ -65,10 +65,6 @@ const Dropdowns = styled.div`
   ul li:hover{
     color:green;
   }
-  ul li:hover > ul{
-     visibility: visible;
-  }
-  
 `;
 const Blog = styled.div`
    color:#000;
@@ -102,7 +98,6 @@ const FirstDropDown = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  visibility:hidden;
   animation: ${animation_one} 1.5s alternate forwards;
   
   li {
@@ -154,10 +149,10 @@ const MainNav = () => {
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li className="link" >
+          <li className="link">
             Our Guides
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            {
+            
               <FirstDropDown>
                 {FirstDropDownItems.map((element) => {
                   return (
@@ -169,7 +164,7 @@ const MainNav = () => {
                   );
                 })}
               </FirstDropDown>
-            }
+            
           </li>
           <li className="link">
             Selling
