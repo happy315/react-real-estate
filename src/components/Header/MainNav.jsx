@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import styled,{keyframes} from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -127,7 +127,6 @@ const SecondDropDown = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  visibility:hidden;
   animation: ${animation_one} 1.5s alternate forwards;
   
   li {
@@ -143,27 +142,32 @@ const SecondDropDown = styled.ul`
 
 const MainNav = () => {
      
+  const [open, setOpen] = useState(false);
 
+
+  const dropDownHandler = () => {
+    setOpen(!open);
+  }
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li className="link">
+          <li className="link" onClick={dropDownHandler}>
             Our Guides
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             
-              <FirstDropDown>
-                {FirstDropDownItems.map((element) => {
-                  return (
-                    <li key={element.id}>
-                      <Link className="Flink" to={element.path}>
-                        {element.title}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </FirstDropDown>
+            {open && <FirstDropDown>
+              {FirstDropDownItems.map((element) => {
+                return (
+                  <li key={element.id}>
+                    <Link className="Flink" to={element.path}>
+                      {element.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </FirstDropDown>}
             
           </li>
           <li className="link">
