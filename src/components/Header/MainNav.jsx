@@ -128,7 +128,7 @@ const SecondDropDown = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   animation: ${animation_one} 1.5s alternate forwards;
-  
+  visibility:visible;
   li {
     margin: 0.5rem 0;
   }
@@ -141,33 +141,33 @@ const SecondDropDown = styled.ul`
 `;
 
 const MainNav = () => {
-     
-  const [open, setOpen] = useState(false);
-
-
-  const dropDownHandler = () => {
-    setOpen(!open);
+     const [open, setOpen] = useState(false)
+  const showDropDownHandler = () => {
+    setOpen(true);
+  }
+  const hideDropDownHandler = () => {
+    setOpen(false);
   }
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li className="link" onClick={dropDownHandler}>
+          <li className="link" onMouseEnter={showDropDownHandler} >
             Our Guides
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
             
-            {open && <FirstDropDown>
+            {open ? <FirstDropDown onMouseEnter={showDropDownHandler} onMouseLeave={hideDropDownHandler}>
               {FirstDropDownItems.map((element) => {
                 return (
-                  <li key={element.id}>
-                    <Link className="Flink" to={element.path}>
+                  <li key={element.id} >
+                    <Link className="Flink" to={element.path} onClick={hideDropDownHandler}>
                       {element.title}
                     </Link>
                   </li>
                 );
               })}
-            </FirstDropDown>}
+            </FirstDropDown>:''}
             
           </li>
           <li className="link">
