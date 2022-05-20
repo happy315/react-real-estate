@@ -1,6 +1,6 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styled,{keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const FirstDropDownItems = [
@@ -62,13 +62,13 @@ const Dropdowns = styled.div`
     font-size: 1.2rem;
     cursor: pointer;
   }
-  ul li:hover{
-    color:green;
+  ul li:hover {
+    color: green;
   }
 `;
 const Blog = styled.div`
-   color:#000;
-   
+  color: #000;
+
   .blog {
     text-decoration: none;
     letter-spacing: 0.2rem;
@@ -76,10 +76,9 @@ const Blog = styled.div`
     font-size: 1.5rem;
     color: #000;
   }
-  
 `;
 // Below i write the code of animation
-const animation_one =keyframes`
+const animation_one = keyframes`
     from {
       transform: translateY(0);
       opacity: 0;
@@ -99,7 +98,7 @@ const FirstDropDown = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   animation: ${animation_one} 1.5s alternate forwards;
-  
+
   li {
     margin: 0.5rem 0;
   }
@@ -115,7 +114,6 @@ const FirstDropDown = styled.ul`
 `;
 // I write the code of animation below with help of keyframe
 
-
 // write styling for second dropdown
 
 const SecondDropDown = styled.ul`
@@ -128,7 +126,7 @@ const SecondDropDown = styled.ul`
   flex-direction: column;
   align-items: flex-start;
   animation: ${animation_one} 1.5s alternate forwards;
-  visibility:visible;
+  visibility: visible;
   li {
     margin: 0.5rem 0;
   }
@@ -137,38 +135,46 @@ const SecondDropDown = styled.ul`
     text-decoration: none;
     font-size: 1.2rem;
   }
-  
 `;
 
 const MainNav = () => {
-     const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const showDropDownHandler = () => {
     setOpen(true);
-  }
+  };
   const hideDropDownHandler = () => {
     setOpen(false);
-  }
+  };
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li className="link" onMouseEnter={showDropDownHandler} >
+          <li className="link" onMouseEnter={showDropDownHandler}>
             Our Guides
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            
-            {open ? <FirstDropDown onMouseEnter={showDropDownHandler} onMouseLeave={hideDropDownHandler}>
-              {FirstDropDownItems.map((element) => {
-                return (
-                  <li key={element.id} >
-                    <Link className="Flink" to={element.path} onClick={hideDropDownHandler}>
-                      {element.title}
-                    </Link>
-                  </li>
-                );
-              })}
-            </FirstDropDown>:''}
-            
+            {open ? (
+              <FirstDropDown
+                onMouseEnter={showDropDownHandler}
+                onMouseLeave={hideDropDownHandler}
+              >
+                {FirstDropDownItems.map((element) => {
+                  return (
+                    <li key={element.id}>
+                      <Link
+                        className="Flink"
+                        to={element.path}
+                        onClick={hideDropDownHandler}
+                      >
+                        {element.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </FirstDropDown>
+            ) : (
+              ""
+            )}
           </li>
           <li className="link">
             Selling
