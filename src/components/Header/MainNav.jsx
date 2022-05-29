@@ -1,4 +1,4 @@
-import React, { useState,useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -94,7 +94,7 @@ const FirstDropDown = styled.ul`
   position: absolute;
   top: 6.2rem;
   padding: 1rem 0rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   animation: ${animation_one} 1.5s alternate forwards;
@@ -111,14 +111,23 @@ const FirstDropDown = styled.ul`
     color: #f709d4;
     font-size: 1.3rem;
   }
+  .active{
+    display: flex;
+  }
 `;
 // I write the code of animation below with help of keyframe
 
 const MainNav = () => {
-  const [open, setOpen] = useState(false);
-  const dropdownref = useRef();
   
-  return (
+  const dropdownref = useRef(null);
+  const dropdownHandler = () => {
+    if (dropdownref.current.style.display ==='none') {
+      dropdownref.current.style.display = 'flex';
+    } else {
+      dropdownref.current.style.display = 'none';
+   }
+  }
+  return ( 
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
@@ -126,14 +135,14 @@ const MainNav = () => {
           <li className="link" onClick={dropdownHandler}>
             Our Guides
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }}/>
-              <FirstDropDown onMouseLeave={dropdownHandler} ref={dropdownref}>
+              <FirstDropDown  ref={dropdownref}>
                 {FirstDropDownItems.map((element) => {
                   return (
                     <li key={element.id}>
                       <Link
                         className="Flink"
                         to={element.path}
-                        onClick={dropdownHandler}
+                        
                       >
                         {element.title}
                       </Link>
