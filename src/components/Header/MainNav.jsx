@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -114,57 +114,26 @@ const FirstDropDown = styled.ul`
 `;
 // I write the code of animation below with help of keyframe
 
-// write styling for second dropdown
-
-const SecondDropDown = styled.ul`
-  width: 250px;
-  background-color: #000;
-  position: absolute;
-  top: 6.2rem;
-  padding: 1rem 0rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  animation: ${animation_one} 1.5s alternate forwards;
-  visibility: visible;
-  li {
-    margin: 0.5rem 0;
-  }
-  li .slink {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-`;
-
 const MainNav = () => {
   const [open, setOpen] = useState(false);
-  const showDropDownHandler = () => {
-    setOpen(true);
-  };
-  const hideDropDownHandler = () => {
-    setOpen(false);
-  };
+  const dropdownref = useRef();
+  
   return (
     <Nav>
       <Logo>THE GOODHART GROUP</Logo>
       <Dropdowns>
         <ul>
-          <li className="link" onMouseEnter={showDropDownHandler}>
+          <li className="link" onClick={dropdownHandler}>
             Our Guides
-            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            {open ? (
-              <FirstDropDown
-                onMouseEnter={showDropDownHandler}
-                onMouseLeave={hideDropDownHandler}
-              >
+            <IoMdArrowDropdown style={{ position: "relative", top: "3px" }}/>
+              <FirstDropDown onMouseLeave={dropdownHandler} ref={dropdownref}>
                 {FirstDropDownItems.map((element) => {
                   return (
                     <li key={element.id}>
                       <Link
                         className="Flink"
                         to={element.path}
-                        onClick={hideDropDownHandler}
+                        onClick={dropdownHandler}
                       >
                         {element.title}
                       </Link>
@@ -172,37 +141,11 @@ const MainNav = () => {
                   );
                 })}
               </FirstDropDown>
-            ) : (
-              ""
-            )}
+            
           </li>
           <li className="link">
             Selling
             <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-            {
-              <SecondDropDown>
-                <li>
-                  <Link className="slink" to="/Selling-with-us">
-                    Selling with us
-                  </Link>
-                </li>
-                <li>
-                  <Link className="slink" to="/Selling-New-Homes">
-                    Selling New Homes
-                  </Link>
-                </li>
-                <li>
-                  <Link className="slink" to="/What-Is-Your-Home-Worth?">
-                    What Is Your Home Worth?
-                  </Link>
-                </li>
-                <li>
-                  <Link className="slink" to="/Book-A-Seller's-Consultation">
-                    Book a Seller's Consultation
-                  </Link>
-                </li>
-              </SecondDropDown>
-            }
           </li>
           <li className="link">
             Buying
