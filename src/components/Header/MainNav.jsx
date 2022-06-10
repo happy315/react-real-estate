@@ -1,9 +1,8 @@
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import {IoMdArrowDropdown} from 'react-icons/io'
-const FullNav = styled.div`
-`;
+import { IoMdArrowDropdown } from "react-icons/io";
+const FullNav = styled.div``;
 const Nav = styled.ul`
   max-height: 5rem;
   display: flex;
@@ -12,7 +11,7 @@ const Nav = styled.ul`
   padding: 2rem 12rem;
   border-bottom: 2px solid black;
   z-index: 1;
-   li {
+  > li {
     color: var(--primary-color);
     font-size: 1.2rem;
     cursor: pointer;
@@ -23,7 +22,7 @@ const Dropdown = styled.ul`
   height: auto;
   margin: 1.5rem 0.2rem;
   padding: 0rem 1rem;
-  display: none;
+  display: flex;
   flex-direction: column;
   z-index: 99;
   background-color: var(--secondary-background-color);
@@ -36,42 +35,50 @@ const StyledLink = styled(Link)`
   margin: 0.5rem 0;
 `;
 
-
 const MainNav = () => {
-    const dropdownRef = useRef();
-    
+  const dropdownRef = useRef();
+
   return (
     <FullNav>
       <Nav>
-        <li>Logo</li>
+              <li style={{ position: "relative",right:"2rem"}}>Logo</li>
         <li>
-          Our guides <IoMdArrowDropdown  style={{position:'relative',top:'3px' }}/>
+          Our guides
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown ref={dropdownRef}>
-            <StyledLink to="/our-lifestyle-guide"> Our Lifestyle Guide </StyledLink>
+            <StyledLink to="/our-lifestyle-guide">
+              
+              Our Lifestyle Guide
+            </StyledLink>
             <StyledLink to="/Our-buying-guide">Our Buying Guide</StyledLink>
             <StyledLink to="/for-sellers">For sellers</StyledLink>
             <StyledLink to="/for-downsizing">For Downsizing</StyledLink>
             <StyledLink to="/for-condos">For Condos</StyledLink>
             <StyledLink to="/all-guides">Get All Our Guides</StyledLink>
             <StyledLink to="/compass">
-              The Collection Magazine by Compass</StyledLink>
+              The Collection Magazine by Compass
+            </StyledLink>
           </Dropdown>
         </li>
+
         <li>
-          Selling <IoMdArrowDropdown  style={{position:'relative',top:'3px' }} />
+          Selling
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown ref={dropdownRef}>
             <StyledLink to="/selling-with-us">Selling With Us</StyledLink>
             <StyledLink to="/selling-new-homes">Selling New Homes</StyledLink>
             <StyledLink to="/your-homeworth">
-              What Is Your Home Worth 
+              What Is Your Home Worth
             </StyledLink>
             <StyledLink to="/real-estate-assessment">
               Book A Seller's Consultation
             </StyledLink>
           </Dropdown>
         </li>
+
         <li>
-          Buying <IoMdArrowDropdown  style={{position:'relative',top:'3px' }} />
+          Buying
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown>
             <StyledLink to="/buying-a-house-in-dc-alexandria/">
               Buying With Us
@@ -84,8 +91,10 @@ const MainNav = () => {
             </StyledLink>
           </Dropdown>
         </li>
+
         <li>
-          Listing <IoMdArrowDropdown  style={{position:'relative',top:'3px' }} />
+          Listing
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown>
             <StyledLink to="/our-featured-listings/d">
               Featured Listings
@@ -108,8 +117,10 @@ const MainNav = () => {
             </StyledLink>
           </Dropdown>
         </li>
+
         <li>
-          Our Team <IoMdArrowDropdown  style={{position:'relative',top:'3px' }} />
+          Our 
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown>
             <StyledLink to="/meet-our-real-estate-team/">
               Meet Our Team
@@ -134,17 +145,22 @@ const MainNav = () => {
             </StyledLink>
           </Dropdown>
         </li>
+
         <li>
-          Neighborhoods <IoMdArrowDropdown  style={{position:'relative',top:'3px' }} />
-          <Dropdown>
-            <StyledLink to="/explore-our-neighborhoods/">
-              Explore Our Area
-            </StyledLink>
-            <StyledLink to="/our-commitment-to-the-washington-dc-area/">
-              Our Commitment to the Area
-            </StyledLink>
-          </Dropdown>
+          Neighborhoods
+          <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
+          
+            <Dropdown>
+              <StyledLink to="/explore-our-neighborhoods/">
+                Explore Our Area
+              </StyledLink>
+              <StyledLink to="/our-commitment-to-the-washington-dc-area/">
+                Our Commitment to the Area
+              </StyledLink>
+            </Dropdown>
+          
         </li>
+
         <li>Blog</li>
       </Nav>
     </FullNav>
