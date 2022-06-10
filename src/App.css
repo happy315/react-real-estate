@@ -15,3 +15,6 @@
   --secondary-color:#fff;
   --primary-border-color:#333;
 }
+ul{
+  list-style: none;
+}
