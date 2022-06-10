@@ -46,7 +46,7 @@ const Contact = styled.div`
 const Logo = styled.div`
   font-size: 2rem;
   color: var(--primary-color);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.3rem;
   text-transform: capitalize;
 `;
