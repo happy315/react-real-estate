@@ -9,8 +9,9 @@ const Nav = styled.ul`
   flex-direction: row;
   justify-content: space-between;
   padding: 2rem 12rem;
-  border-bottom: 2px solid black;
-  z-index: 1;
+  border-bottom: 0.3rem solid black;
+  background-color: #fff;
+  
   > li {
     color: var(--primary-color);
     font-size: 1.2rem;
@@ -22,7 +23,7 @@ const Dropdown = styled.ul`
   height: auto;
   margin: 1.5rem 0.2rem;
   padding: 0rem 1rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   z-index: 99;
   background-color: var(--secondary-background-color);

@@ -1,13 +1,17 @@
 import React from 'react';
 import MainNav from './MainNav';
 import SmallNav from './SmallNav';
+import styled from 'styled-components';
 
+const HeaderStyles  = styled.div`
+    z-index:99;
+`
 const Header = () => {
     return (
-        <div>
+        <HeaderStyles>
             <SmallNav />
             <MainNav />
-        </div>
+        </HeaderStyles>
     );
 };
 export default Header;
