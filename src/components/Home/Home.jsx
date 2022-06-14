@@ -83,6 +83,9 @@ const ScrollBtnStyles = styled.div`
     border: 0;
     
   }
+  a img{
+    height: 85px;
+  }
 `;
 
 const Home = () => {
