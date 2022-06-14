@@ -1,5 +1,4 @@
 import React from "react";
-import { AiOutlineArrowDown } from 'react-icons/ai'
 import styled from "styled-components";
 
 const HomeSection = styled.div`
@@ -24,12 +23,6 @@ const TextSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* .heading{
-        
-      }
-      .heading h1{
-        
-      } */
 `;
 const HeadingStyles = styled.div`
   margin-top: 6rem;
@@ -65,25 +58,24 @@ const ButtonStyles = styled.div`
   }
 `;
 const ScrollBtnStyles = styled.div`
-   text-align: center;
-   margin-right: 4.5rem;
-   font-size:2rem;
-   
-  a{
+  text-align: center;
+  margin-right: 4.5rem;
+  font-size: 2rem;
+
+  a {
     position: absolute;
     bottom: -50px;
     width: 25px;
     height: 105px;
-   padding: 1rem 0rem;
+    padding: 1rem 0rem;
     background-color: #fff;
     box-shadow: 0px 0px 4px 4px rgb(0 0 0 / 10%);
     font-size: 0.1rem;
-    font-weight:100;
+    font-weight: 100;
     color: #000;
     border: 0;
-    
   }
-  a img{
+  a img {
     height: 85px;
   }
 `;
@@ -111,7 +103,7 @@ const Home = () => {
       </TextSection>
       <ScrollBtnStyles>
         <a href="#contact" className="scroll-link">
-       <img src="/images/black-arrow.svg" alt="" />
+          <img src="/images/black-arrow.svg" alt="" />
         </a>
       </ScrollBtnStyles>
     </HomeSection>
