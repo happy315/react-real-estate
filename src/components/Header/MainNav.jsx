@@ -1,20 +1,28 @@
-import React, { useRef } from "react";
+import React ,{ useRef,useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
-const FullNav = styled.div``;
+
+const FullNav = styled.div`
+
+`;
 const Nav = styled.ul`
-  max-height: 5rem;
+  width:100vw;
+  position: fixed;
+  top: 2rem;
+  max-height: 4rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem 12rem;
-  border-bottom: 0.3rem solid black;
-  background-color: #fff;
+  border-bottom: 0.1rem solid #fff;
+  background-color: transparent;
   
+ 
   > li {
-    color: var(--primary-color);
-    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-size: 1rem;
     cursor: pointer;
   }
 `;
@@ -26,7 +34,7 @@ const Dropdown = styled.ul`
   display: none;
   flex-direction: column;
   z-index: 99;
-  background-color: var(--secondary-background-color);
+  background-color: var(--primary-background-color);
 `;
 
 const StyledLink = styled(Link)`
@@ -37,18 +45,43 @@ const StyledLink = styled(Link)`
 `;
 
 const MainNav = () => {
-  const dropdownRef = useRef();
 
+  const navref = useRef();
+  useEffect(() => {
+    const li = document.querySelectorAll('ul >li');
+    
+  
+  window.addEventListener('scroll',function () {
+    if (window.scrollY > 5) {
+      navref.current.style.backgroundColor = 'var(--secondary-color)';
+      navref.current.style.borderBottom = '0.1rem solid black';
+      navref.current.style.transition = '0.5s all ';
+      li.forEach((listItem) => {
+        listItem.style.color = 'black'
+      })
+    } else if (this.window.scrollY === 0) {
+      navref.current.style.backgroundColor = 'transparent';
+      navref.current.style.borderBottom = '0.1rem solid white';
+      navref.current.style.transition = '0.5s all ';
+      li.forEach((listItem) => {
+        listItem.style.color = 'white'
+      })
+    }
+    
+  }) 
+  
+}, [])
+
+   
   return (
     <FullNav>
-      <Nav>
-              <li style={{ position: "relative",right:"2rem"}}>Logo</li>
+      <Nav className="nav" ref={navref}>
+        <li style={{ position: "relative", right: "2rem" }}>Logo</li>
         <li>
           Our guides
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-          <Dropdown ref={dropdownRef}>
+          <Dropdown>
             <StyledLink to="/our-lifestyle-guide">
-              
               Our Lifestyle Guide
             </StyledLink>
             <StyledLink to="/Our-buying-guide">Our Buying Guide</StyledLink>
@@ -65,7 +98,7 @@ const MainNav = () => {
         <li>
           Selling
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-          <Dropdown ref={dropdownRef}>
+          <Dropdown>
             <StyledLink to="/selling-with-us">Selling With Us</StyledLink>
             <StyledLink to="/selling-new-homes">Selling New Homes</StyledLink>
             <StyledLink to="/your-homeworth">
@@ -120,7 +153,7 @@ const MainNav = () => {
         </li>
 
         <li>
-          Our 
+          Our
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
           <Dropdown>
             <StyledLink to="/meet-our-real-estate-team/">
@@ -150,16 +183,14 @@ const MainNav = () => {
         <li>
           Neighborhoods
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-          
-            <Dropdown>
-              <StyledLink to="/explore-our-neighborhoods/">
-                Explore Our Area
-              </StyledLink>
-              <StyledLink to="/our-commitment-to-the-washington-dc-area/">
-                Our Commitment to the Area
-              </StyledLink>
-            </Dropdown>
-          
+          <Dropdown>
+            <StyledLink to="/explore-our-neighborhoods/">
+              Explore Our Area
+            </StyledLink>
+            <StyledLink to="/our-commitment-to-the-washington-dc-area/">
+              Our Commitment to the Area
+            </StyledLink>
+          </Dropdown>
         </li>
 
         <li>Blog</li>

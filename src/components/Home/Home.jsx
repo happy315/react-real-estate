@@ -5,10 +5,10 @@ const HomeSection = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  bottom: 0%;
+  bottom: 0;
   right: 0;
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
   margin: auto 0;
   background-image: url("/images/DSC1240-scaled.jpeg");
   background-size: cover;
@@ -25,7 +25,7 @@ const TextSection = styled.div`
   align-items: center;
 `;
 const HeadingStyles = styled.div`
-  margin-top: 6rem;
+  margin-top: 4rem;
   text-align: center;
   color: var(--secondary-color);
   h1 {
@@ -35,7 +35,6 @@ const HeadingStyles = styled.div`
   }
 `;
 const ParagraphStyels = styled.div`
-  margin-top: 1rem;
   p {
     font-size: 1.3rem;
     color: var(--secondary-color);
@@ -43,18 +42,25 @@ const ParagraphStyels = styled.div`
   }
 `;
 const ButtonStyles = styled.div`
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   display: inline-block;
-  button {
+  a {
     min-width: 225px;
     padding: 1rem 3rem;
     margin: 1rem;
     color: var(--secondary-color);
     background-color: transparent;
-    outline: 0.2rem solid #fff;
+    border: 0.2rem solid #fff;
     font-weight: normal;
     letter-spacing: 0;
     font-size: 1rem;
+    text-decoration:none;
+    transition: 0.2s all ;
+  }
+  a:hover{
+  font-weight: 600;
+  border: 2px solid #39a795;
+  background-color:var( --secondary-background-color);
   }
 `;
 const ScrollBtnStyles = styled.div`
@@ -80,7 +86,10 @@ const ScrollBtnStyles = styled.div`
   }
 `;
 
+
 const Home = () => {
+  
+  
   return (
     <HomeSection>
       <TextSection>
@@ -97,8 +106,8 @@ const Home = () => {
           </p>
         </ParagraphStyels>
         <ButtonStyles>
-          <button className="search">Search For Homes</button>
-          <button className="evaluation">Get A Home Evaluation </button>
+          <a href="/custom-search" className="search">Search For Homes</a >
+          <a href="/find-home-worth" className="evaluation">Get A Home Evaluation </a>
         </ButtonStyles>
       </TextSection>
       <ScrollBtnStyles>

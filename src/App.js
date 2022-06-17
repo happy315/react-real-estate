@@ -1,18 +1,15 @@
 import React from "react";
 import './App.css';
-import Header from "./components/Header/Header";
-import Home from './components/Home/Home';
 import {Switch,Route} from 'react-router-dom'
 import { Redirect } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 function App() {
   return (
     <div className="App">
       <Redirect to="/" />
-      
       <Switch>
         <Route>
-          <Header />
-         <Home />
+          <HomePage />
         </Route>
       </Switch>
     </div>

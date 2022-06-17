@@ -5,8 +5,12 @@ import styled from 'styled-components';
 
 const HeaderStyles  = styled.div`
     z-index:99;
+    
 `
+
 const Header = () => {
+    
+    
     return (
         <HeaderStyles>
             <SmallNav />
