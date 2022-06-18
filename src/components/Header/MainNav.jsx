@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { IoMdArrowDropdown } from "react-icons/io";
 
-const FullNav = styled.div`
-
-`;
+const FullNav = styled.div``;
 const Nav = styled.ul`
   width:100vw;
   position: fixed;
@@ -19,7 +17,7 @@ const Nav = styled.ul`
   padding: 2rem 12rem;
   border-bottom: 0.1rem solid #fff;
   background-color: transparent;
-  
+  z-index: 99;
  
   > li {
     color: var(--secondary-color);

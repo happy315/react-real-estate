@@ -20,6 +20,7 @@ const Nav = styled.div`
   background-color: transparent;
   padding: 1rem 0;
   border-bottom: 0.1rem solid #fff;
+  z-index: 99;
 `;
 const Social = styled.div`
   position: relative;
@@ -40,6 +41,7 @@ const Contact = styled.div`
     color: var(--secondary-color);
     font-size: 1rem;
     letter-spacing: 0.05rem;
+    font-weight: bolder;
   }
   a {
     border-right: 2px solid var(--secondary-color);
@@ -57,6 +59,7 @@ const Logo = styled.div`
 `;
 
 const SmallNav = () => {
+  const scrollVariable = window.scrollY;
   const snavRef = useRef();
   const logoRef = useRef();
   const a = document.querySelectorAll(".anchor");

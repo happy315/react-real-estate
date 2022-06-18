@@ -2,15 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const HomeSection = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  margin: auto 0;
-  background-image: url("/images/DSC1240-scaled.jpeg");
+  background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("/images/DSC1240-scaled.jpeg") ;
+  background-blend-mode: darken;
   background-size: cover;
   background-attachment: fixed;
   z-index: -1;
@@ -18,6 +16,7 @@ const HomeSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 `;
 const TextSection = styled.div`
   display: flex;
