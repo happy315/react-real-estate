@@ -1,4 +1,4 @@
-import React,{useEffect,useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { RiFacebookLine } from "react-icons/ri";
 import { FiTwitter } from "react-icons/fi";
@@ -12,18 +12,17 @@ const Nav = styled.div`
   width: 100vw;
   height: 1rem;
   position: fixed;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color:transparent;
+  background-color: transparent;
   padding: 1rem 0;
-  
   border-bottom: 0.1rem solid #fff;
 `;
 const Social = styled.div`
-position: relative;
+  position: relative;
   a {
     position: relative;
     padding: 0 0.5rem;
@@ -44,7 +43,6 @@ const Contact = styled.div`
   }
   a {
     border-right: 2px solid var(--secondary-color);
-    
   }
   a:nth-child(3) {
     border-right: none;
@@ -59,66 +57,67 @@ const Logo = styled.div`
 `;
 
 const SmallNav = () => {
-
   const snavRef = useRef();
   const logoRef = useRef();
-  const li = document.querySelectorAll('a');
+  const a = document.querySelectorAll(".anchor");
   useEffect(() => {
-    window.addEventListener('scroll', function scrollHandler() {
-      if (window.scrollY > 5) {
-        snavRef.current.style.backgroundColor = 'white';
-        snavRef.current.style.borderBottom = '0.1rem solid black';
-        li.forEach((listItem) => {
-          listItem.style.color = 'black'
+    window.addEventListener("scroll", function scrollHandler() {
+      if (window.scrollY > 0) {
+        snavRef.current.style.backgroundColor = "white";
+        snavRef.current.style.borderBottom = "0.1rem solid black";
+        a.forEach((element) => {
+          element.style.color = "black";
         });
-        logoRef.current.style.color = 'black';
-      }  else if(window.scrollY ===0) {
-        snavRef.current.style.backgroundColor = 'transparent';
-        snavRef.current.style.borderBottom = '0.1rem solid white';
-        li.forEach((listItem) => {
-          listItem.style.color = 'white';
+        logoRef.current.style.color = "black";
+      } else if (window.scrollY === 0) {
+        snavRef.current.style.backgroundColor = "transparent";
+        snavRef.current.style.borderBottom = "0.1rem solid white";
+        a.forEach((element) => {
+          element.style.color = "white";
         });
-        logoRef.style.color = 'white';
+        logoRef.current.style.color = "white";
       }
-    
-     
-   })
-    
-  },[]);
-  
-  
+    });
+  }, []);
+
   return (
     <Nav ref={snavRef}>
       <Social>
-        <a href="#facebook">
+        <a href="#facebook" className="anchor">
           <RiFacebookLine />
         </a>
-        <a href="#facebook">
+        <a href="#facebook" className="anchor">
           <FiTwitter />
         </a>
-        <a href="#facebook">
+        <a href="#facebook" className="anchor">
           <ImPinterest2 />
         </a>
-        <a href="#facebook">
+        <a href="#facebook" className="anchor">
           <FaInstagram />
         </a>
-        <a href="#facebook">
+        <a href="#facebook" className="anchor">
           <RiLinkedinLine />
         </a>
       </Social>
       <Contact>
-        <a href="#phone">
-          <FaPhoneVolume style={{ color: "green",position:'relative',top:'3px', }} />
+        <a href="#phone" className="anchor">
+          <FaPhoneVolume
+            style={{ color: "green", position: "relative", top: "3px" }}
+          />
           :46738934579834
         </a>
 
-        <a href="#email">
-          <AiOutlineMail style={{ color: "green",position:'relative',top:'3px' }} />
+        <a href="#email" className="anchor">
+          <AiOutlineMail
+            style={{ color: "green", position: "relative", top: "3px" }}
+          />
           :singhjodadj@gmail.com
         </a>
 
-        <a href="#email">
-          <AiOutlineMail style={{ color: "green",position:'relative',top:'3px' }} />
+        <a href="#email" className="anchor">
+          <AiOutlineMail
+            style={{ color: "green", position: "relative", top: "3px" }}
+          />
           :sbdgsvbsdwvddga@gmail.com
         </a>
       </Contact>

@@ -12,6 +12,7 @@ const HomeSection = styled.div`
   margin: auto 0;
   background-image: url("/images/DSC1240-scaled.jpeg");
   background-size: cover;
+  background-attachment: fixed;
   z-index: -1;
   display: flex;
   flex-direction: column;

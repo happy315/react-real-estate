@@ -10,6 +10,7 @@ const Nav = styled.ul`
   width:100vw;
   position: fixed;
   top: 2rem;
+  left: 0;
   max-height: 4rem;
   display: flex;
   flex-direction: row;
@@ -52,17 +53,19 @@ const MainNav = () => {
     
   
   window.addEventListener('scroll',function () {
-    if (window.scrollY > 5) {
+    if (window.scrollY > 0) {
       navref.current.style.backgroundColor = 'var(--secondary-color)';
       navref.current.style.borderBottom = '0.1rem solid black';
-      navref.current.style.transition = '0.5s all ';
+      navref.current.style.borderTop = '0.1rem solid black';
+      navref.current.style.transition = '0.5s all';
       li.forEach((listItem) => {
         listItem.style.color = 'black'
       })
-    } else if (this.window.scrollY === 0) {
+    } else if (window.scrollY === 0) {
       navref.current.style.backgroundColor = 'transparent';
+      navref.current.style.borderTop = 'none';
       navref.current.style.borderBottom = '0.1rem solid white';
-      navref.current.style.transition = '0.5s all ';
+      navref.current.style.transition = '0.5s all';
       li.forEach((listItem) => {
         listItem.style.color = 'white'
       })
