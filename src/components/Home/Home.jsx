@@ -6,7 +6,7 @@ const HomeSection = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 90vh;
   background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url("/images/DSC1240-scaled.jpeg") ;
   background-blend-mode: darken;
   background-size: cover;
@@ -55,12 +55,14 @@ const ButtonStyles = styled.div`
     letter-spacing: 0;
     font-size: 1rem;
     text-decoration:none;
-    transition: 0.2s all ;
+    transition: 0.2s all;
   }
   a:hover{
+  
   font-weight: 600;
   border: 2px solid #39a795;
   background-color:var( --secondary-background-color);
+  cursor: pointer;
   }
 `;
 const ScrollBtnStyles = styled.div`
@@ -88,8 +90,6 @@ const ScrollBtnStyles = styled.div`
 
 
 const Home = () => {
-  
-  
   return (
     <HomeSection>
       <TextSection>
@@ -106,8 +106,9 @@ const Home = () => {
           </p>
         </ParagraphStyels>
         <ButtonStyles>
-          <a href="/custom-search" className="search">Search For Homes</a >
-          <a href="/find-home-worth" className="evaluation">Get A Home Evaluation </a>
+          
+          <a href="#h" className="search">Search For Homes</a>
+          <a href="#y" className="evaluation">Get A Home Evaluation </a>
         </ButtonStyles>
       </TextSection>
       <ScrollBtnStyles>
