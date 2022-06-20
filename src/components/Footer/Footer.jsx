@@ -78,27 +78,38 @@ const StyledBelow = styled.div`
 
   h3 {
     color: var(--primary-color);
-    margin: 0 0.5rem;
+    margin: 0 0.7rem;
     cursor: pointer;
+    font-weight: 500;
     font-size: 0.9rem;
+  }
+  #builders{
+    border-left: 0.1rem solid #000;
+    padding-left: 1rem;
   }
   a {
     color: var(--primary-color);
-    margin: 0 0.5rem;
+    margin: 0 0.6rem;
     text-decoration: none;
     border-left: 0.1rem solid black;
     color: #39a795;
     font-weight: 600;
     font-size: 0.9rem;
-    padding: 0rem 0.4rem;
+    padding-left: 2rem;
+   
+    
   }
   a:hover {
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: underline;
     text-decoration-color: #39a795;
     text-decoration-thickness: 0.1rem;
-    text-decoration-style: thick;
-    border-bottom: 0.1rem solid #39a795;
+  }
+  #makers{
+    color:#39a795;
+  }
+  #makers:hover{
+    border-bottom:0.1rem solid #39a795;
   }
 `;
 const Footer = () => {
@@ -152,8 +163,8 @@ const Footer = () => {
         <h3>© 2022 The Goodhart Group</h3>
         <a href="#contact">Contact Us</a>
         <a href="#privacy">Privacy Policy</a>
-        <h3>
-          Made by <span>Artifakt Digital</span>
+        <h3 id="builders">
+          Made by <span id="makers">Artifakt Digital</span>
         </h3>
       </StyledBelow>
     </StyledFooter>
