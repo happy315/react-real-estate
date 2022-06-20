@@ -3,7 +3,8 @@ import styled from "styled-components";
 import {IoMdHeartEmpty} from 'react-icons/io'
 const StyledContact = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 40%;
+  padding: 100px 0 60px 0;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -117,14 +118,26 @@ const StyledForm = styled.form`
 }
 `;
 
+
 const Contact = () => {
+
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+    }
+
+
+
+
+
+
   return (
     <StyledContact>
       <StyledTitle>
         <h4>We're always here to listen.</h4>
         <h1>Have Questions? It Starts Here</h1>
       </StyledTitle>
-      <StyledForm action="" id="form">
+      <StyledForm action="" id="form" onSubmit={submitHandler}>
         <div>
           <ul>
             <li>
