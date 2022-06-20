@@ -39,7 +39,7 @@ const Contact = styled.div`
     padding: 0 0.5rem;
     text-decoration: none;
     color: var(--secondary-color);
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05rem;
     font-weight: bolder;
   }
@@ -59,7 +59,7 @@ const Logo = styled.div`
 `;
 
 const SmallNav = () => {
-  const scrollVariable = window.scrollY;
+  
   const snavRef = useRef();
   const logoRef = useRef();
   const a = document.querySelectorAll(".anchor");
