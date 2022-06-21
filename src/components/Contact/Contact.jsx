@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import {IoMdHeartEmpty} from 'react-icons/io'
+import { IoMdHeartEmpty } from "react-icons/io";
 const StyledContact = styled.div`
   width: 100%;
   height: 40%;
@@ -65,7 +65,7 @@ const StyledForm = styled.form`
 
     border: 2px solid #39a795;
   }
-  
+
   li input #name {
     position: absolute;
     top: 0px;
@@ -73,7 +73,7 @@ const StyledForm = styled.form`
     width: 100%;
     padding: 1rem 0rem;
   }
-  
+
   li input #email {
     position: absolute;
     top: 15px;
@@ -90,46 +90,59 @@ const StyledForm = styled.form`
     text-align: center;
     display: inline-block;
   }
-  li div button{
+  li div button {
     position: relative;
     padding: 0.8rem 7rem;
-    color:#39a795;
+    color: #39a795;
     background-color: var(--secondary-color);
     border: 0.15rem solid #39a795;
     margin-top: 1rem;
-    transition: 1s all ;
+    transition: 1s all;
   }
 
-  li div button span{
+  li div button span {
     position: relative;
-     top: 1rem;
+    top: 1rem;
     right: 1.2rem;
     visibility: hidden;
   }
-  
-  li div button:hover{
+
+  li div button:hover {
     background-color: #000;
     cursor: pointer;
-    
   }
-  li div button:hover span{
+  li div button:hover span {
     visibility: visible;
-    
-}
+  }
 `;
 
 
 const Contact = () => {
+  //  States for registration
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
+  // Handling the name change
+  const nameChangeHandler = (event) => {
+    setName(event.target.value);
+  };
+  // Handling the email change
+  const emailChangeHandler = (event) => {
+    setEmail(event.target.value);
+  };
+  // Handling the message change in textarea
+  const messageChangeHandler = (event) => {
+    setMessage(event.target.value);
+  };
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-    }
-
-
-
-
-
+  // For submiting the form
+  const submitHandler = (event) => {
+    event.preventDefault();
+    setName('');
+    setEmail('');
+    setMessage('');
+  };
 
   return (
     <StyledContact>
@@ -149,6 +162,8 @@ const Contact = () => {
                 id="name"
                 aria-required="true"
                 aria-invalid="false"
+                value={name}
+                onChange={nameChangeHandler}
               />
             </li>
             <li>
@@ -161,6 +176,8 @@ const Contact = () => {
                 id="email"
                 aria-required="true"
                 aria-invalid="false"
+                value={email}
+                onChange={emailChangeHandler}
               />
             </li>
             <li>
@@ -173,13 +190,19 @@ const Contact = () => {
                 cols="50"
                 rows="10"
                 aria-invalid="false"
+                value={message}
+                onChange={messageChangeHandler}
               ></textarea>
             </li>
-                      <li>
-                          <div>
-                          <button type="submit">Send<span><IoMdHeartEmpty/></span></button>
-                          </div>
-              
+            <li>
+              <div>
+                <button type="submit">
+                  Send
+                  <span>
+                    <IoMdHeartEmpty />
+                  </span>
+                </button>
+              </div>
             </li>
           </ul>
         </div>
