@@ -19,10 +19,13 @@ const StyledUpper = styled.div`
   align-items: center;
   justify-content: center;
   padding: 100px 0;
-  .links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  /* use display grid for making the layout */
+  .links{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-items: center;
+    align-items: center;
+    padding:0 5rem ;
   }
   .links .first {
     margin: 0rem 3rem;
@@ -61,6 +64,7 @@ const StyledUpper = styled.div`
     border-bottom: 0.1rem solid #39a795;
     cursor: pointer;
   }
+  
 `;
 const StyledLogo = styled.div`
   font-size: 2rem;
@@ -115,8 +119,8 @@ const StyledBelow = styled.div`
 const Footer = () => {
   return (
     <StyledFooter>
-      <StyledUpper className="upper">
-        <StyledLogo className="logo">The GoodHeart Group</StyledLogo>
+      <StyledUpper >
+        <StyledLogo >The GoodHeart Group</StyledLogo>
         <div className="links">
           <div className="first">
             <h3>Sue Goodhart</h3>
