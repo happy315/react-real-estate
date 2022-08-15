@@ -16,7 +16,7 @@ const Nav = styled.ul`
   align-items: center;
   padding: 2rem 12rem;
   border-bottom: 0.1rem solid #fff;
-  background-color: transparent;
+  background-color: var(--transparent-color);
   z-index: 99;
  
   > li {
@@ -50,28 +50,28 @@ const MainNav = () => {
     const li = document.querySelectorAll('ul >li');
     
   
-  window.addEventListener('scroll',function () {
-    if (window.scrollY > 0) {
-      navref.current.style.backgroundColor = 'var(--secondary-color)';
-      navref.current.style.borderBottom = '0.1rem solid black';
-      navref.current.style.borderTop = '0.1rem solid black';
-      navref.current.style.transition = '0.5s all';
-      li.forEach((listItem) => {
-        listItem.style.color = 'black'
-      })
-    } else if (window.scrollY === 0) {
-      navref.current.style.backgroundColor = 'transparent';
-      navref.current.style.borderTop = 'none';
-      navref.current.style.borderBottom = '0.1rem solid white';
-      navref.current.style.transition = '0.5s all';
-      li.forEach((listItem) => {
-        listItem.style.color = 'white'
-      })
-    }
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 0) {
+        navref.current.style.backgroundColor = 'white';
+        navref.current.style.borderBottom = '0.1rem solid black';
+        navref.current.style.borderTop = '0.1rem solid black';
+        navref.current.style.transition = '0.1s all';
+        li.forEach((listItem) => {
+          listItem.style.color = 'black'
+        })
+      } else if (window.scrollY === 0) {
+        navref.current.style.backgroundColor = 'transparent';
+        navref.current.style.borderTop = 'none';
+        navref.current.style.borderBottom = '0.1rem solid white';
+        navref.current.style.transition = '0.1s all';
+        li.forEach((listItem) => {
+          listItem.style.color = 'white'
+        })
+      }
     
-  }) 
+    })
   
-}, [])
+  });
 
    
   return (

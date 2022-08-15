@@ -14,7 +14,16 @@
   --primary-color:#000;
   --secondary-color:#fff;
   --primary-border-color:#333;
+  --transparent-color:transparent;
 }
 ul{
   list-style: none;
+}
+.white-theme{
+  --primary-background-color:#000;
+  --secondary-background-color:#fff;
+  --primary-color:#fff;
+  --secondary-color:#000;
+  --primary-border-color:#333;
+  --transparent-color:#000;
 }

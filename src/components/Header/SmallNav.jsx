@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import { RiFacebookLine } from "react-icons/ri";
+import { RiFacebookLine,RiLinkedinLine } from "react-icons/ri";
 import { FiTwitter } from "react-icons/fi";
 import { ImPinterest2 } from "react-icons/im";
-import { FaInstagram } from "react-icons/fa";
-import { RiLinkedinLine } from "react-icons/ri";
+import { FaInstagram,FaPhoneVolume } from "react-icons/fa";
 import { AiOutlineMail } from "react-icons/ai";
-import { FaPhoneVolume } from "react-icons/fa";
+
 
 const Nav = styled.div`
   width: 100vw;
@@ -59,15 +58,16 @@ const Logo = styled.div`
 `;
 
 const SmallNav = () => {
-  
   const snavRef = useRef();
   const logoRef = useRef();
-  const a = document.querySelectorAll(".anchor");
+
   useEffect(() => {
+    const a = document.querySelectorAll("a");
     window.addEventListener("scroll", function scrollHandler() {
       if (window.scrollY > 0) {
         snavRef.current.style.backgroundColor = "white";
         snavRef.current.style.borderBottom = "0.1rem solid black";
+        
         a.forEach((element) => {
           element.style.color = "black";
         });
@@ -81,43 +81,43 @@ const SmallNav = () => {
         logoRef.current.style.color = "white";
       }
     });
-  }, []);
+  });
 
   return (
     <Nav ref={snavRef}>
       <Social>
-        <a href="#facebook" className="anchor">
+        <a href="#facebook">
           <RiFacebookLine />
         </a>
-        <a href="#facebook" className="anchor">
+        <a href="#facebook">
           <FiTwitter />
         </a>
-        <a href="#facebook" className="anchor">
+        <a href="#facebook">
           <ImPinterest2 />
         </a>
-        <a href="#facebook" className="anchor">
+        <a href="#facebook">
           <FaInstagram />
         </a>
-        <a href="#facebook" className="anchor">
+        <a href="#facebook">
           <RiLinkedinLine />
         </a>
       </Social>
       <Contact>
-        <a href="#phone" className="anchor">
+        <a href="#phone">
           <FaPhoneVolume
             style={{ color: "green", position: "relative", top: "3px" }}
           />
           :46738934579834
         </a>
 
-        <a href="#email" className="anchor">
+        <a href="#email">
           <AiOutlineMail
             style={{ color: "green", position: "relative", top: "3px" }}
           />
           :singhjodadj@gmail.com
         </a>
 
-        <a href="#email" className="anchor">
+        <a href="#email">
           <AiOutlineMail
             style={{ color: "green", position: "relative", top: "3px" }}
           />
