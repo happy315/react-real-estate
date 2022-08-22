@@ -26,21 +26,26 @@ const Nav = styled.ul`
   }
 `;
 const Dropdown = styled.ul`
-  width: 170px;
-  height: auto;
-  margin: 1.5rem 0.2rem;
+
+  position: absolute;
+  top:4.1rem;
+  width: 200px;
+  height: 250px;
   padding: 0rem 1rem;
-  display: none;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   z-index: 99;
   background-color: var(--primary-background-color);
+  color:black;
+  
 `;
 
 const StyledLink = styled(Link)`
-  color: var(--secondary-color);
+  color: var(--secondary-background-color);
   text-decoration: none;
   cursor: pointer;
-  margin: 0.5rem 0;
+  
 `;
 
 const MainNav = () => {
@@ -81,7 +86,7 @@ const MainNav = () => {
         <li>
           Our guides
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-          <Dropdown>
+          <Dropdown className="d-1">
             <StyledLink to="/our-lifestyle-guide">
               Our Lifestyle Guide
             </StyledLink>
@@ -99,7 +104,7 @@ const MainNav = () => {
         <li>
           Selling
           <IoMdArrowDropdown style={{ position: "relative", top: "3px" }} />
-          <Dropdown>
+          <Dropdown style={{width:'200px',marginRight:'8rem'}}>
             <StyledLink to="/selling-with-us">Selling With Us</StyledLink>
             <StyledLink to="/selling-new-homes">Selling New Homes</StyledLink>
             <StyledLink to="/your-homeworth">
