@@ -37,7 +37,7 @@ const Dropdown = styled.ul`
   color: black;
   padding: 1rem 0.5rem;
   box-shadow: 0 0 8px 4px rgb(0 0 0 / 20%);
-  .active {
+  &.active {
     display: flex;
   }
 `;
@@ -51,16 +51,16 @@ const StyledLink = styled(Link)`
   margin: 0.35rem 0rem;
 `;
 const DLink = styled.li`
-  &:hover > ul{
-  display: flex;
- }
+  /* &:hover > ul {
+    display: flex;
+  } */
 `;
 
 const MainNav = () => {
   const navref = useRef();
   useEffect(() => {
     const li = document.querySelectorAll(".nav >li");
-
+    const ul = document.querySelectorAll(".nav >li >ul");
     window.addEventListener("scroll", function () {
       if (window.scrollY > 0) {
         navref.current.style.backgroundColor = "white";
@@ -78,9 +78,27 @@ const MainNav = () => {
         li.forEach((listItem) => {
           listItem.style.color = "white";
         });
+        ul.forEach((item) => {
+          const a = item.querySelectorAll("a");
+          a.forEach((anchor) => {
+            anchor.style.color = "black";
+          });
+        });
       }
     });
-  }, []);
+    li.forEach((item) => {
+      item.addEventListener("click", () => {
+        const allDMenu = document.querySelectorAll(".nav > li >ul");
+        allDMenu.forEach((menu) => {
+          if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+          }
+        });
+        const dMenu = item.querySelector("ul");
+        dMenu.classList.toggle("active");
+      });
+    });
+  });
 
   return (
     <Nav className="nav" ref={navref}>

@@ -17,5 +17,5 @@ const Header = () => {
             <MainNav />
         </HeaderStyles>
     );
-};
+}
 export default Header;
