@@ -34,13 +34,19 @@ const Contact = styled.div`
   border-left: 2px solid #fff;
   border-right: 2px solid #fff;
   padding: 0.5rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   a {
+    display: flex;
+    align-items: center;
     padding: 0 0.5rem;
     text-decoration: none;
     color: var(--secondary-color);
     font-size: 0.9rem;
     letter-spacing: 0.05rem;
     font-weight: bolder;
+   
   }
   a {
     border-right: 2px solid var(--secondary-color);
@@ -105,21 +111,21 @@ const SmallNav = () => {
       <Contact>
         <a href="#phone">
           <FaPhoneVolume
-            style={{ color: "green", position: "relative", top: "3px" }}
+          style={{ color: "green", position: "relative" }} 
           />
           :46738934579834
         </a>
 
         <a href="#email">
           <AiOutlineMail
-            style={{ color: "green", position: "relative", top: "3px" }}
+          style={{ color: "green", position: "relative" }} 
           />
           :singhjodadj@gmail.com
         </a>
 
         <a href="#email">
           <AiOutlineMail
-            style={{ color: "green", position: "relative", top: "3px" }}
+          style={{ color: "green", position: "relative" }}
           />
           :sbdgsvbsdwvddga@gmail.com
         </a>
